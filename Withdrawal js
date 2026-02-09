@@ -1,0 +1,22 @@
+import React, { useState } from "react";
+import { requestWithdrawal } from "../api/api";
+
+const Withdrawals = ({ userId }) => {
+  const [amount, setAmount] = useState(0);
+  const [status, setStatus] = useState("");
+
+  const handleRequest = () => {
+    requestWithdrawal(userId, amount).then(res => setStatus(res.data.status || "Pending"));
+  };
+
+  return (
+    <div>
+      <h3>Withdrawals</h3>
+      <input type="number" value={amount} onChange={e => setAmount(e.target.value)} />
+      <button onClick={handleRequest}>Request Withdrawal</button>
+      <p>Status: {status}</p>
+    </div>
+  );
+};
+
+export default Withdrawals;
