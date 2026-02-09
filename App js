@@ -1,0 +1,20 @@
+import React from "react";
+import Dashboard from "./components/Dashboard";
+import Referrals from "./components/Referrals";
+import Withdrawals from "./components/Withdrawals";
+
+function App() {
+  const userId = 1; // Hardcoded for testing, replace with auth logic
+  const referralLink = "https://pesaraha.vercel.app/?ref=ABC123";
+  const bonusCredits = 50; // Fetch dynamically later
+
+  return (
+    <div className="App">
+      <Dashboard userId={userId} />
+      <Referrals referralLink={referralLink} bonusCredits={bonusCredits} />
+      <Withdrawals userId={userId} />
+    </div>
+  );
+}
+
+export default App;
