@@ -1,0 +1,14 @@
+import React from "react";
+
+const Referrals = ({ referralLink, bonusCredits }) => {
+  return (
+    <div>
+      <h3>Referrals</h3>
+      <p>Your referral link: <input type="text" value={referralLink} readOnly /></p>
+      <p>Referral Bonus Credits: {bonusCredits}</p>
+      <button onClick={() => navigator.clipboard.writeText(referralLink)}>Copy Link</button>
+    </div>
+  );
+};
+
+export default Referrals;
